@@ -55,6 +55,14 @@ svg {
   }
 }
 
+.navlink-reset {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+}
+
 @for $i from 1 through 64 {
   .gap-#{$i} {
     gap: #{$i}px;

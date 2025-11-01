@@ -6,18 +6,18 @@ import { NavLink } from 'react-router';
 
 export default function ProductsPage() {
   return (
-    <main className="layout__content flex flex_column">
-      <div className="layout__filter"></div>
+    <main className="product-page__content flex flex_column">
+      <div className="product-page__filter"></div>
 
-      <div className="layout__card flex flex_wrap gap-50">
+      <div className="product-page__card flex flex_wrap gap-50">
         {pets.map((pet) => (
-          <NavLink to={links.productDescription.to}>
+          <NavLink to={links.productDescription.to} className="navlink-reset">
             <Card cardProp={pet} />
           </NavLink>
         ))}
       </div>
 
-      <div className="layout__pagination"></div>
+      <div className="product-page__pagination"></div>
     </main>
   );
 }
