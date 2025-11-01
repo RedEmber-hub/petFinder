@@ -1,0 +1,19 @@
+.card {
+  width: 220px;
+  max-width: 220px;
+  height: 300px;
+  max-height: 250px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  &__content {
+    padding: 0 16px;
+
+    height: 100%;
+  }
+
+  &__more-info {
+    background-color: var(--color-primery);
+  }
+}

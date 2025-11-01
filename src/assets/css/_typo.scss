@@ -1,0 +1,37 @@
+@use 'mixins' as *;
+
+.body-xs {
+  @include body-xs();
+}
+
+.body-s {
+  @include body-s();
+}
+
+.body {
+  @include body();
+}
+
+.subtitle {
+  @include subtitle();
+}
+
+.subtitle-lg {
+  @include subtitle-lg();
+}
+
+.heading-s {
+  @include heading-s();
+}
+
+.heading {
+  @include heading();
+}
+
+.hero {
+  @include hero();
+}
+
+.display {
+  @include display();
+}

@@ -1,0 +1,102 @@
+@mixin baseFont {
+  font-family: 'Dosis', sans-serif;
+  // по дефолту
+  font-style: normal;
+  margin: 0;
+
+  @include weightFont();
+}
+
+@mixin weightFont {
+  &--regular {
+    font-weight: 400 !important;
+  }
+
+  &--medium {
+    font-weight: 500 !important;
+  }
+
+  &--semibold {
+    font-weight: 600 !important;
+  }
+
+  &--bold {
+    font-weight: 700 !important;
+  }
+}
+
+@mixin body-3xs {
+  @include baseFont();
+
+  font-size: 10px;
+  line-height: 140%;
+}
+
+@mixin body-2xs {
+  @include baseFont();
+
+  font-size: 12px;
+  line-height: 130%;
+}
+
+@mixin body-xs {
+  @include baseFont();
+
+  font-size: 14px;
+  line-height: 120%;
+}
+
+@mixin body-s {
+  @include baseFont();
+
+  font-size: 18px;
+  line-height: 120%;
+}
+
+@mixin body {
+  @include baseFont();
+
+  font-size: 22px;
+  line-height: 120%;
+}
+
+@mixin subtitle {
+  @include baseFont();
+
+  font-size: 24px;
+  line-height: 120%;
+}
+
+@mixin subtitle-lg {
+  @include baseFont();
+
+  font-size: 26px;
+  line-height: 120%;
+}
+
+@mixin heading-s {
+  @include baseFont();
+
+  font-size: 30px;
+  line-height: 120%;
+}
+
+@mixin heading {
+  @include baseFont();
+
+  font-size: 36px;
+  line-height: 130%;
+}
+
+@mixin hero {
+  @include baseFont();
+
+  font-size: 48px;
+  line-height: 130%;
+}
+@mixin display {
+  @include baseFont();
+
+  font-size: 100px;
+  line-height: 110%;
+}

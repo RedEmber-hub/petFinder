@@ -1,0 +1,33 @@
+.layout {
+  height: 100%;
+
+  &__header {
+    width: 100%;
+    height: 70px;
+    max-height: 80px;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search {
+    width: 600px;
+  }
+
+  &__create-product-link {
+    align-items: center;
+    justify-content: center;
+
+    width: 227px;
+    height: 55px;
+
+    border-radius: 999px;
+
+    background-color: var(--color-primery);
+
+    a {
+      color: var(--color-white);
+      text-decoration: none;
+    }
+  }
+}

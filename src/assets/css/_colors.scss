@@ -1,0 +1,17 @@
+.text-color {
+  &--primery {
+    color: var(--color-primery);
+  }
+
+  &--black {
+    color: var(--color-black);
+  }
+
+  &--white {
+    color: var(--color-white);
+  }
+
+  &--secondary {
+    color: var(--color-secondary);
+  }
+}

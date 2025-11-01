@@ -1,0 +1,66 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+// обязательно
+html {
+  height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-right: calc(-1 * (100vw - 100%)) !important;
+}
+
+#root {
+  height: 100dvh;
+
+  padding: 15px 30px;
+}
+
+// обязательно
+img,
+video {
+  height: 100%;
+  max-width: 100%;
+}
+
+svg {
+  display: flex;
+}
+
+.text-truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+
+  &_column {
+    flex-direction: column;
+  }
+
+  &_wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@for $i from 1 through 64 {
+  .gap-#{$i} {
+    gap: #{$i}px;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}
