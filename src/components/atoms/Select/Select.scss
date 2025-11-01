@@ -1,0 +1,25 @@
+.select {
+  position: relative;
+  &__selection {
+    align-items: center;
+  }
+
+  &__label {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    list-style: none;
+
+    position: absolute;
+    top: calc(100% + 8px);
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    padding: 10px;
+  }
+}

@@ -55,6 +55,14 @@ svg {
   }
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 .navlink-reset {
   display: block;
   text-decoration: none;
@@ -64,11 +72,11 @@ svg {
 }
 
 @for $i from 1 through 64 {
-  .gap-#{$i} {
+  .gap_#{$i} {
     gap: #{$i}px;
   }
 
-  .mb-#{$i} {
+  .mb_#{$i} {
     margin-bottom: #{$i}px;
   }
 }

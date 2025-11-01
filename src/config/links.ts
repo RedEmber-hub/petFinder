@@ -4,7 +4,7 @@ export const links = {
     label: 'Главная страница',
   },
 
-  productDescription: {
+  productAbout: {
     to: '/products/:id',
     label: 'Подробнее о продукте',
   },

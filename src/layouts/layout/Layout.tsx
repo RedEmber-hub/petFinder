@@ -6,8 +6,8 @@ import { links } from '@/config/links';
 
 export default function Layout() {
   return (
-    <div className="layout flex flex_column gap-8">
-      <div className="layout__header flex gap-16 mb-12">
+    <div className="layout flex flex_column gap_8">
+      <div className="layout__header flex gap_16 mb_12">
         {/* логотип*/}
         <div className="layout__logo-link flex">
           <NavLink to={links.logo.to}>
