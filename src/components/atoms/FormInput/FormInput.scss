@@ -1,0 +1,28 @@
+.formInput {
+  margin-bottom: 16px;
+
+  gap: 6px;
+
+  margin-bottom: 16px;
+
+  &__input input {
+    padding: 8px 12px;
+
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 6px;
+
+    background-color: var(--color-white);
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  &__input:focus {
+    outline: none;
+    border-color: var(--color-primery);
+    box-shadow: 0 0 3px var(--color-primery);
+  }
+
+  &__error {
+    color: red;
+  }
+}
