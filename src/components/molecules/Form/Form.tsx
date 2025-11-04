@@ -1,71 +1,109 @@
 import { useState } from 'react';
-import './Form.scss';
 import { PetInterface } from '@/types/Pet';
-import { pets } from '@/mocks/pets';
-import { FormInput } from '@/components/atoms/FormInput';
-import { inputConfigs } from '@/mocks/inputConfig';
+import { filters } from '@/mocks/filters';
+import './Form.scss';
+import { FormProps } from './Form.type';
 
-// Тип для формы без id
-type FormValues = Omit<PetInterface, 'id'>;
-
-export default function Form() {
-  const [values, setValues] = useState<FormValues>({
-    image_url: '',
+export default function Form({ onAdd }: FormProps) {
+  const [values, setValues] = useState<Omit<PetInterface, 'id'>>({
     name: '',
     species: '',
     gender: '',
-    age: 0,
+    age: '',
+    color: '',
+    image_url: '',
     description: '',
   });
 
-  function onChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = event.target;
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    const { name, value } = e.target;
     setValues((prev) => ({
       ...prev,
-      [name]: name === 'age' ? Number(value) : value,
+      [name]: value,
     }));
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-    // простая валидация
-    for (const field of inputConfigs) {
-      const val = values[field.name];
-      if (field.required && (val === '' || val === null || val === undefined)) {
-        alert(field.errorMessage);
-        return;
+    // Проверка обязательных полей
+    if (!values.name.trim()) return alert('Введите имя питомца');
+    for (const filter of filters) {
+      if (!values[filter.id as keyof typeof values]) {
+        return alert(`Выберите ${filter.label}`);
       }
     }
 
-    const newCard: PetInterface = {
+    // Минимальная дополнительная валидация
+    if (values.name.trim().length < 2) return alert('Имя должно быть минимум 2 символа');
+    if (values.image_url && !/^https?:\/\//.test(values.image_url)) return alert('Введите корректный URL изображения');
+    if (values.description.length > 200) return alert('Описание слишком длинное (макс. 200 символов)');
+
+    const newPet: PetInterface = {
       ...values,
       id: Date.now(),
     };
 
-    pets.push(newCard);
-    console.log('Все карточки:', pets);
+    onAdd(newPet);
 
+    // Сброс формы
     setValues({
-      image_url: '',
       name: '',
       species: '',
       gender: '',
-      age: 0,
+      age: '',
+      color: '',
+      image_url: '',
       description: '',
     });
   }
 
   return (
-    <form onSubmit={handleSubmit} className="form flex flex_column">
-      {inputConfigs.map((config) => (
-        <FormInput
-          key={config.id}
-          {...config}
-          value={String(values[config.name])} // 🔹 конвертируем в строку
-          onChange={onChange}
-        />
+    <form onSubmit={handleSubmit} className="form flex flex_column gap_10">
+      {/* Name */}
+      <label>
+        Имя:
+        <input type="text" name="name" value={values.name} onChange={handleChange} placeholder="Введите имя питомца" />
+      </label>
+
+      {/* Select поля */}
+      {filters.map((filter) => (
+        <label key={filter.id}>
+          {filter.label}:
+          <select name={filter.id} value={values[filter.id as keyof typeof values]} onChange={handleChange}>
+            <option value="">Выберите {filter.label.toLowerCase()}</option>
+            {filter.options.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </label>
       ))}
+
+      {/* Дополнительно URL и описание */}
+      <label>
+        Image URL:
+        <input
+          type="text"
+          name="image_url"
+          value={values.image_url}
+          onChange={handleChange}
+          placeholder="Введите ссылку на изображение"
+        />
+      </label>
+
+      <label>
+        Description:
+        <input
+          type="text"
+          name="description"
+          value={values.description}
+          onChange={handleChange}
+          placeholder="Введите описание питомца"
+        />
+      </label>
+
       <button type="submit">Добавить карточку</button>
     </form>
   );

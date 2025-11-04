@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Icon } from '../Icon';
 import './Select.scss';
 import classNames from 'classnames';
 import { SelectProps } from './Select.type';
 import { FilterOption } from '@/types/Filters';
 
-export default function Select({ placeholder, options = [], onChange }: SelectProps) {
+export default function Select({ placeholder, options = [], value, onChange }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [selected, setSelected] = useState<FilterOption | null>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   const className = classNames({
     select: true,
@@ -19,19 +19,39 @@ export default function Select({ placeholder, options = [], onChange }: SelectPr
   });
 
   function toggleSelect() {
-    setIsOpen((isOpen) => !isOpen);
+    setIsOpen((prev) => !prev);
   }
 
   function handleSelect(option: FilterOption) {
-    setSelected(option);
+    onChange(option.value); // передаём выбранное значение в родителя
     setIsOpen(false);
   }
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleClickOutside(event: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Находим объект выбранной опции для отображения label
+  const selectedOption = options.find((o) => o.value === value);
+
   return (
-    <div className={className}>
+    <div ref={selectRef} className={className}>
       <div className="select__selection flex gap_4 cursor-pointer" onClick={toggleSelect}>
         <div className="select__label flex">
           <span className="body-s body-s--medium text-color--primery cursor-pointer">
-            {selected ? selected.label : placeholder}
+            {selectedOption ? selectedOption.label : placeholder}
           </span>
         </div>
 
@@ -41,7 +61,7 @@ export default function Select({ placeholder, options = [], onChange }: SelectPr
       </div>
 
       {isOpen && (
-        <ul className="select__list">
+        <ul className="select__list cursor-pointer">
           {options.map((option) => (
             <li key={option.value} onClick={() => handleSelect(option)}>
               {option.label}

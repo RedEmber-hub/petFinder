@@ -8,6 +8,7 @@ export const filters: filtersInterface[] = [
       { value: 'dog', label: 'Собака' },
       { value: 'cat', label: 'Кошка' },
       { value: 'bird', label: 'Птица' },
+      { value: 'rabbit', label: 'Кролик' },
     ],
   },
   {

@@ -1,0 +1,62 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+
+  &__page,
+  &__button-left,
+  &__button-right {
+    cursor: pointer;
+
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  &__page.active {
+    background: #6f63e5; // активная страница
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  &__button-left,
+  &__button-right {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  // Иконки внутри кнопок перелистывания
+  &__button-left svg,
+  &__button-right svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
+  }
+
+  &__button-left:hover svg {
+    transform: translateX(-2px);
+  }
+
+  &__button-right:hover svg {
+    transform: translateX(2px);
+  }
+}

@@ -1,5 +1,80 @@
 .form {
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f0e6ff; // нежный фоновый цвет
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Inter', sans-serif;
 
-  gap: 12px;
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #4b3d7e;
+    font-weight: 500;
+    gap: 4px;
+
+    input,
+    select {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #d6cfff;
+      background: #fff;
+      font-size: 14px;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #a580ff;
+        box-shadow: 0 0 8px rgba(165, 128, 255, 0.3);
+      }
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+  }
+
+  button {
+    padding: 12px;
+    background: linear-gradient(135deg, #a580ff, #d6b3ff);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(165, 128, 255, 0.4);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(165, 128, 255, 0.5);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 10px rgba(165, 128, 255, 0.3);
+    }
+  }
+
+  /* Для мобильных устройств */
+  @media (max-width: 600px) {
+    padding: 16px;
+    gap: 12px;
+    button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
 }

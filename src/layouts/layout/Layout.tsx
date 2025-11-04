@@ -5,12 +5,13 @@ import { NavLink, Outlet } from 'react-router';
 import { links } from '@/config/links';
 import { useMemo, useState } from 'react';
 import { pets } from '@/mocks/pets';
+import { PetInterface } from '@/types/Pet';
 
 export default function Layout() {
   const [search, setSearch] = useState('');
 
   return (
-    <div className="layout flex flex_column gap_8">
+    <div className="layout flex flex_column">
       <div className="layout__header flex gap_16 mb_12">
         {/* логотип*/}
         <div className="layout__logo-link flex">
@@ -32,7 +33,7 @@ export default function Layout() {
 
         {/* ссылка на создание нового продукта*/}
         <div className="layout__create-product-link flex">
-          <NavLink to={links.createProduct.to} className="text-color--white body-xs">
+          <NavLink to="/create-product" className="text-color--white body-xs">
             {links.createProduct.label}
           </NavLink>
         </div>
