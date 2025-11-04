@@ -6,7 +6,7 @@ export default function Card({ cardProp }: CardProps) {
   return (
     <div className="card flex flex_column gap_8 cursor-pointer">
       <div className="card__image">
-        <img src="https://ethnomir.ru/upload/medialibrary/3ce/1.jpg" alt="котёнок" />
+        <img src={cardProp.image_url} alt={cardProp.name} />
       </div>
 
       {/* кнопка закрыть */}

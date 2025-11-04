@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import { Layout } from '@/layouts/layout';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { MainPage } from '@/pages/ProductsPage';
+import { MainPage } from '@/pages/MainPage';
 import { ProductPage } from '@/pages/ProductPage';
 import { CreateProductPage } from '@/pages/CreateProductPage';
 

@@ -4,7 +4,6 @@ export interface PetInterface {
   species: string;
   name: string;
   gender: string;
-  breed: string;
   age: number;
   description: string;
 }

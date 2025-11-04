@@ -1,0 +1,86 @@
+.product-page {
+  background-color: #ffffff;
+  padding: 24px;
+
+  &__header {
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 24px;
+  }
+
+  &__name h1 {
+    font-size: 2rem;
+    font-weight: 700;
+
+    color: #000000;
+
+    margin: 0;
+  }
+
+  &__species span {
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: #686868;
+  }
+
+  &__photo img {
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+    border: 2px solid #ada7ff;
+  }
+
+  &__main {
+    gap: 32px;
+
+    margin-bottom: 32px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  &__detail {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: #686868;
+    min-width: 100px;
+  }
+
+  &__value {
+    font-weight: 500;
+    color: #000000;
+  }
+
+  &__gallery {
+  }
+
+  &-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 16px;
+  }
+}
+
+/* Дополнительно для мелких элементов */
+.text-truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

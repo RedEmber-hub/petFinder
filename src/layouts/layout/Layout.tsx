@@ -3,8 +3,12 @@ import './Layout.scss';
 import { InputField } from '@/components/atoms/InputField';
 import { NavLink, Outlet } from 'react-router';
 import { links } from '@/config/links';
+import { useMemo, useState } from 'react';
+import { pets } from '@/mocks/pets';
 
 export default function Layout() {
+  const [search, setSearch] = useState('');
+
   return (
     <div className="layout flex flex_column gap_8">
       <div className="layout__header flex gap_16 mb_12">
@@ -18,7 +22,7 @@ export default function Layout() {
         {/* инпут для поиска*/}
         <div className="layout__search">
           <InputField>
-            <InputField.Field placeholder="Поиск питомца" />
+            <InputField.Field placeholder="Поиск питомца" value={search} onChangeValue={setSearch} />
 
             <InputField.Slot>
               <Icon name="search" />
@@ -35,7 +39,7 @@ export default function Layout() {
       </div>
 
       <div className="layout__outlet">
-        <Outlet />
+        <Outlet context={{ search }} />
       </div>
     </div>
   );
