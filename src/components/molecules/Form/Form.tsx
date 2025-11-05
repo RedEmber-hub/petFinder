@@ -5,7 +5,7 @@ import './Form.scss';
 import { FormProps } from './Form.type';
 
 export default function Form({ onAdd }: FormProps) {
-  const [values, setValues] = useState<Omit<PetInterface, 'id'>>({
+  const [values, setValues] = useState<Omit<PetInterface, 'id' | 'liked'>>({
     name: '',
     species: '',
     gender: '',
