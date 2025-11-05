@@ -5,4 +5,5 @@ export interface CardProps {
   onLike: () => void;
   onDelete: () => void;
   onClick: () => void;
+  isLiked: boolean;
 }

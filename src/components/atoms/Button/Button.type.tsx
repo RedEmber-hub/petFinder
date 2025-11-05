@@ -1,4 +1,9 @@
+export type ElementSize = 's' | 'm';
+
 export interface ButtonProps {
   icon: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  size: ElementSize;
+  active: boolean;
+  children: React.ReactNode;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }

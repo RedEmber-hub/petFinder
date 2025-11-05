@@ -6,6 +6,8 @@ import { useNavigate, useOutletContext } from 'react-router';
 import { Select } from '@/components/atoms/Select';
 import { Card } from '@/components/atoms/Card';
 import { Pagination } from '@/components/molecules/Pagination';
+import { Button } from '@/components/atoms/Button';
+import './MainPage.scss';
 
 export default function MainPage() {
   const { search } = useOutletContext<{ search: string }>();
@@ -18,14 +20,16 @@ export default function MainPage() {
   const [likedPets, setLikedPets] = useState<PetInterface[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
 
+  const speciesMap: Record<string, string> = {
+    собака: 'dog',
+    кошка: 'cat',
+    попугай: 'bird',
+    кролик: 'rabbit',
+  };
+
   function mapSearchToSpecies(search: string): string[] {
-    const speciesMap: Record<string, string> = {
-      собака: 'dog',
-      кошка: 'cat',
-      попугай: 'bird',
-      кролик: 'rabbit',
-    };
     const searchWords = search.toLowerCase().trim().split(/\s+/);
+
     return Array.from(
       new Set(
         searchWords.flatMap((word) =>
@@ -44,8 +48,9 @@ export default function MainPage() {
 
   const handleLike = (pet: PetInterface) => {
     setLikedPets((prev) => {
-      if (prev.find((p) => p.id === pet.id)) return prev;
-      return [...prev, pet];
+      const exists = prev.find((p) => p.id === pet.id);
+
+      return exists ? prev.filter((p) => p.id !== pet.id) : [...prev, { ...pet, liked: true }];
     });
   };
 
@@ -74,7 +79,7 @@ export default function MainPage() {
 
   return (
     <main className="main-page__content flex flex_column">
-      <div className="main-page__filter flex mb_20 items-center gap_16" style={{ position: 'relative', zIndex: 10 }}>
+      <div className="main-page__filter mb_20 gap_16" style={{ position: 'relative', zIndex: 10 }}>
         {filters.map((filter) => (
           <Select
             key={filter.id}
@@ -85,16 +90,13 @@ export default function MainPage() {
           />
         ))}
 
-        <button
-          className={`favorites-btn ${showFavorites ? 'active' : ''}`}
-          onClick={() => setShowFavorites((prev) => !prev)}
-        >
-          {showFavorites ? 'Показать все' : 'Избранное'}
-        </button>
+        <div className="main-page__buttons flex gap_25">
+          <Button onClick={() => setShowFavorites((prev) => !prev)}>
+            {showFavorites ? 'Показать все' : 'Избранное'}
+          </Button>
 
-        <button className="reset-btn" onClick={resetFilters}>
-          Сбросить фильтры
-        </button>
+          <Button onClick={resetFilters}>Сбросить фильтры</Button>
+        </div>
       </div>
 
       <div className="main-page__card flex flex_wrap gap_50">
@@ -105,6 +107,7 @@ export default function MainPage() {
               onDelete={() => handleDelete(pet.id)}
               onLike={() => handleLike(pet)}
               onClick={() => navigate(`/products/${pet.id}`)} // клик по карточке
+              isLiked={likedPets.some((p) => p.id === pet.id)}
             />
           </div>
         ))}

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Icon } from '../Icon';
 import './Select.scss';
 import classNames from 'classnames';
 import { SelectProps } from './Select.type';
@@ -50,13 +49,9 @@ export default function Select({ placeholder, options = [], value, onChange }: S
     <div ref={selectRef} className={className}>
       <div className="select__selection flex gap_4 cursor-pointer" onClick={toggleSelect}>
         <div className="select__label flex">
-          <span className="body-s body-s--medium text-color--primery cursor-pointer">
+          <span className="body-s body-s--medium text-color--primary cursor-pointer">
             {selectedOption ? selectedOption.label : placeholder}
           </span>
-        </div>
-
-        <div className="select__icon flex">
-          <Icon name="arrow" />
         </div>
       </div>
 

@@ -3,6 +3,24 @@ import './ProductPage.scss';
 import { useMemo } from 'react';
 import { pets } from '@/mocks/pets';
 
+const valueMap: Record<string, string> = {
+  adult: 'взрослый',
+  young: 'молодой',
+  baby: 'малютка',
+  elderly: 'пожилой',
+  male: 'мужской',
+  female: 'женский',
+  cat: 'кошка/кот',
+  dog: 'собака',
+  bird: 'птица',
+  rabbit: 'кролик',
+  black: 'черный',
+  brown: 'коричневый',
+  white: 'белый',
+  gray: 'серый',
+  red: 'рыжий',
+};
+
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const petId = Number(id);
@@ -12,6 +30,7 @@ export default function ProductPage() {
   }, [pets, petId]);
 
   if (!currentPet) return <div>Питомец не найден</div>;
+
   return (
     <div className="product-page">
       <div className="product-page__header flex flex_column">
@@ -19,7 +38,7 @@ export default function ProductPage() {
           <h1 className="heading">{currentPet.name}</h1>
         </div>
         <div className="product-page__species">
-          <span className="subtitle-lg subtitle-lg--semibold">{currentPet.species}</span>
+          <span className="subtitle-lg subtitle-lg--semibold">{valueMap[currentPet.species]}</span>
         </div>
       </div>
 
@@ -34,7 +53,7 @@ export default function ProductPage() {
               <span className="subtitle-lg subtitle-lg--semibold">Пол:</span>
             </div>
             <div className="product-page__value">
-              <span className="subtitle-lg subtitle-lg--semibold">{currentPet.gender}</span>
+              <span className="subtitle-lg subtitle-lg--semibold">{valueMap[currentPet.gender]}</span>
             </div>
           </div>
 
@@ -43,7 +62,16 @@ export default function ProductPage() {
               <span className="subtitle-lg subtitle-lg--semibold">Возраст:</span>
             </div>
             <div className="product-page__value">
-              <span className="subtitle-lg subtitle-lg--semibold">{currentPet.age}</span>
+              <span className="subtitle-lg subtitle-lg--semibold">{valueMap[currentPet.age]}</span>
+            </div>
+          </div>
+
+          <div className="product-page__detail flex gap_10">
+            <div className="product-page__label">
+              <span className="subtitle-lg subtitle-lg--semibold">Рацветка:</span>
+            </div>
+            <div className="product-page__value">
+              <span className="subtitle-lg subtitle-lg--semibold">{valueMap[currentPet.color]}</span>
             </div>
           </div>
 

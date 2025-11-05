@@ -12,8 +12,6 @@ export default function Pagination({ totalItems, itemsPerPage, currentPage, onPa
 
   return (
     <div className="pagination flex gap_4 items-center justify-center mt_20">
-      <Button icon="arrow-left" onClick={() => goToPage(currentPage - 1)} />
-
       {Array.from({ length: totalPages }, (_, i) => (
         <button
           key={i}
@@ -23,8 +21,6 @@ export default function Pagination({ totalItems, itemsPerPage, currentPage, onPa
           {i + 1}
         </button>
       ))}
-
-      <Button icon="arrow-right" onClick={() => goToPage(currentPage + 1)} />
     </div>
   );
 }

@@ -7,4 +7,5 @@ export interface PetInterface {
   age: string;
   color: string;
   description: string;
+  liked?: boolean;
 }

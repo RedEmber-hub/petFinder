@@ -1,13 +1,17 @@
-import { Form } from '@/components/molecules/Form';
 import './CreateProductPage.scss';
+
+import { Form } from '@/components/molecules/Form';
 import { PetInterface } from '@/types/Pet';
-import { useState } from 'react';
 import { pets } from '@/mocks/pets';
+import { useNavigate } from 'react-router';
 
 export default function CreateProductPage() {
+  const navigate = useNavigate();
+
   function handleAddPet(newPet: PetInterface) {
-    pets.push(newPet); // добавляем в конец массива
-    console.log('Новая карточка:', newPet);
+    // добавляет новую карточку в начало массива
+    pets.unshift(newPet);
+    navigate('/products');
   }
 
   return <Form onAdd={handleAddPet} />;

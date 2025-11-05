@@ -3,9 +3,8 @@ import './Layout.scss';
 import { InputField } from '@/components/atoms/InputField';
 import { NavLink, Outlet } from 'react-router';
 import { links } from '@/config/links';
-import { useMemo, useState } from 'react';
-import { pets } from '@/mocks/pets';
-import { PetInterface } from '@/types/Pet';
+import { useState } from 'react';
+import { Button } from '@/components/atoms/Button';
 
 export default function Layout() {
   const [search, setSearch] = useState('');
@@ -16,7 +15,7 @@ export default function Layout() {
         {/* логотип*/}
         <div className="layout__logo-link flex">
           <NavLink to={links.logo.to}>
-            <Icon name="logo" />
+            <Icon name="logo" size={48} />
           </NavLink>
         </div>
 
@@ -26,7 +25,9 @@ export default function Layout() {
             <InputField.Field placeholder="Поиск питомца" value={search} onChangeValue={setSearch} />
 
             <InputField.Slot>
-              <Icon name="search" />
+              <Button size="s">
+                <Icon name="search" />
+              </Button>
             </InputField.Slot>
           </InputField>
         </div>

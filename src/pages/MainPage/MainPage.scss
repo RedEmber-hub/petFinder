@@ -1,0 +1,18 @@
+.main-page {
+  width: 100%;
+  align-items: center;
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__buttons {
+    align-items: center;
+  }
+
+  &__card {
+    justify-content: center;
+  }
+}

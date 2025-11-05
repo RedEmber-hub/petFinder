@@ -10,6 +10,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'black',
     description: 'Спокойный и дружелюбный, любит дремать на солнце.',
+    liked: false,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'brown',
     description: 'Активный и веселый, любит играть с мячом.',
+    liked: false,
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'white',
     description: 'Любит мурчать и сидеть на коленях.',
+    liked: false,
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'gray',
     description: 'Сильный и смелый охранник дома.',
+    liked: false,
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const pets: PetInterface[] = [
     age: 'baby',
     color: 'red',
     description: 'Игривый, любит прятки.',
+    liked: false,
   },
   {
     id: 6,
@@ -57,9 +62,10 @@ export const pets: PetInterface[] = [
     species: 'dog',
     name: 'Жук',
     gender: 'male',
-    age: 'elderly',
+    age: 'adult',
     color: 'black',
-    description: 'Старый мудрый пёс, спокойный и ласковый.',
+    description: 'Взрослый мудрый пёс, спокойный и ласковый.',
+    liked: false,
   },
   {
     id: 7,
@@ -70,6 +76,7 @@ export const pets: PetInterface[] = [
     age: 'baby',
     color: 'white',
     description: 'Обожает спать на мягких поверхностях.',
+    liked: false,
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'brown',
     description: 'Любит гулять в парке и знакомиться с другими животными.',
+    liked: false,
   },
   {
     id: 9,
@@ -90,6 +98,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'red',
     description: 'Яркий и болтливый, любит повторять слова.',
+    liked: false,
   },
   {
     id: 10,
@@ -100,6 +109,7 @@ export const pets: PetInterface[] = [
     age: 'baby',
     color: 'white',
     description: 'Милый и пушистый, любит морковку и тихие уголки.',
+    liked: false,
   },
   {
     id: 11,
@@ -110,6 +120,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'gray',
     description: 'Очень ласковая и игривая.',
+    liked: false,
   },
   {
     id: 12,
@@ -121,6 +132,7 @@ export const pets: PetInterface[] = [
     age: 'elderly',
     color: 'black',
     description: 'Спокойный и надежный спутник семьи.',
+    liked: false,
   },
   {
     id: 13,
@@ -131,6 +143,7 @@ export const pets: PetInterface[] = [
     age: 'elderly',
     color: 'black',
     description: 'Любит тихие места и наблюдать за птицами.',
+    liked: false,
   },
   {
     id: 14,
@@ -141,6 +154,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'red',
     description: 'Очень дружелюбная и активная.',
+    liked: false,
   },
   {
     id: 15,
@@ -151,6 +165,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'red',
     description: 'Любит играть с клубком и лазить по шкафам.',
+    liked: false,
   },
   {
     id: 16,
@@ -162,6 +177,8 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'white',
     description: 'Постоянно веселая и общительная.',
+
+    liked: false,
   },
   {
     id: 17,
@@ -172,6 +189,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'red',
     description: 'Любит яркие игрушки и сидеть на плечах хозяина.',
+    liked: false,
   },
   {
     id: 18,
@@ -182,6 +200,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'white',
     description: 'Спокойная и нежная, любит чистоту и мягкие домики.',
+    liked: false,
   },
   {
     id: 19,
@@ -193,6 +212,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'red',
     description: 'Любит дремать на подоконнике и загорать.',
+    liked: false,
   },
   {
     id: 20,
@@ -203,6 +223,7 @@ export const pets: PetInterface[] = [
     age: 'elderly',
     color: 'brown',
     description: 'Верный, любит длительные прогулки.',
+    liked: false,
   },
   {
     id: 21,
@@ -213,6 +234,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'gray',
     description: 'Игривый, любит прятаться под диваном.',
+    liked: false,
   },
   {
     id: 22,
@@ -223,6 +245,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'white',
     description: 'Любит играть с детьми и приносить игрушки.',
+    liked: false,
   },
   {
     id: 23,
@@ -234,6 +257,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'white',
     description: 'Любопытный и наблюдательный.',
+    liked: false,
   },
   {
     id: 24,
@@ -244,6 +268,7 @@ export const pets: PetInterface[] = [
     age: 'young',
     color: 'red',
     description: 'Очень дружелюбная, любит обниматься.',
+    liked: false,
   },
   {
     id: 25,
@@ -255,6 +280,7 @@ export const pets: PetInterface[] = [
     age: 'baby',
     color: 'red',
     description: 'Маленькая и активная, любит бегать.',
+    liked: false,
   },
   {
     id: 26,
@@ -265,6 +291,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'brown',
     description: 'Любит играть на улице и приносить палки.',
+    liked: false,
   },
   {
     id: 27,
@@ -276,6 +303,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'gray',
     description: 'Спокойная и ласковая.',
+    liked: false,
   },
   {
     id: 28,
@@ -286,6 +314,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'black',
     description: 'Сильный и преданный друг.',
+    liked: false,
   },
   {
     id: 29,
@@ -297,6 +326,7 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'gray',
     description: 'Любит повторять звуки и играть с игрушками.',
+    liked: false,
   },
   {
     id: 30,
@@ -307,5 +337,6 @@ export const pets: PetInterface[] = [
     age: 'adult',
     color: 'brown',
     description: 'Любит мягкие подстилки и тихие уголки.',
+    liked: false,
   },
 ];

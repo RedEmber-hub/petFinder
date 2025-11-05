@@ -1,20 +1,16 @@
 import classNames from 'classnames';
 import './Button.scss';
-import { Icon } from '../Icon';
 import { ButtonProps } from './Button.type';
 
-export default function Button({ icon, onClick, className }: ButtonProps) {
-  const classNameButton = classNames(
-    {
-      button: true,
-      [`button--s`]: true,
-    },
-    className
-  );
+export default function Button({ size, children, onClick }: Partial<ButtonProps>) {
+  const className = classNames({
+    button: true,
+    [`button--${size}`]: size,
+  });
 
   return (
-    <button className={classNameButton} onClick={onClick}>
-      <Icon name={icon} />
+    <button className={className} onClick={onClick}>
+      {children}
     </button>
   );
 }

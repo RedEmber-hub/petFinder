@@ -5,7 +5,18 @@
   max-height: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+
   position: relative;
+
+  &__button {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    gap: 8px; // расстояние между кнопками
+    z-index: 2; // поверх картинки
+  }
 
   &__image {
     width: 100%;
